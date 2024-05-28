@@ -56,8 +56,8 @@ pract_btn.pack(pady=20)
 img_frame = ctk.CTkFrame(home_page)
 img_frame.grid(row=0, column=0, sticky="nsew")
 ##image for home page
-hands_image = ctk.CTkImage(light_image=Image.open("/home/rolyster/Documents/EnglishProject/hands.png"),
-                                  dark_image=Image.open("/home/rolyster/Documents/EnglishProject/hands.png"),
+hands_image = ctk.CTkImage(light_image=Image.open("hands.png"),
+                                  dark_image=Image.open("hands.png"),
                                   size=(screen_width/2, screen_height))
 
 image_label = ctk.CTkLabel(img_frame, image=hands_image, text="", compound="left")
@@ -90,12 +90,32 @@ others_btn.pack()
 
 
 # Page 3
-label3 = ctk.CTkLabel(page3, text="Ceci est la page 3", font=("Helvetica", 16))
+'''label3 = ctk.CTkLabel(page3, text="Ceci est la page 3", font=("Helvetica", 16))
 label3.pack(pady=10)
 button3_to_1 = ctk.CTkButton(page3, text="Retour à la page 1", command=lambda: show_frame(home_page))
 button3_to_1.pack()
 button3_to_2 = ctk.CTkButton(page3, text="Retour à la page 2", command=lambda: show_frame(lrn_page))
-button3_to_2.pack()
+button3_to_2.pack()'''
+
+sidebar1 = ctk.CTkFrame(page3, width=300)
+sidebar1.pack(side="left", fill="y")
+
+bartxt1 = ctk.CTkLabel(sidebar1, text="EXERCISE", text_color="#AD4933",font=("Century Gothic", 30))
+bartxt1.pack(padx=50, pady=40)
+
+##btns
+number_btn1 = ctk.CTkButton(sidebar1, text="Numbers",text_color="#AD4933", font=("Century Gothic", 20), command=lambda: show_frame(page3), height=40, width=300, fg_color="white", hover_color="gray")
+number_btn1.pack()
+
+alpha_btn1 = ctk.CTkButton(sidebar1, text="Alphabet",text_color="#AD4933", font=("Century Gothic", 20), command=lambda: show_frame(page3), height=40, width=300, fg_color="white", hover_color="gray")
+alpha_btn1.pack(pady=20)
+
+others_btn1 = ctk.CTkButton(sidebar1, text="Others",text_color="#AD4933", font=("Century Gothic", 20), command=lambda: show_frame(page3), height=40, width=300, fg_color="white", hover_color="gray")
+others_btn1.pack()
+
+from_ex_to_home = ctk.CTkButton(sidebar1, text="Home",text_color="#AD4933", font=("Century Gothic", 20), command=lambda: show_frame(page3), height=40, width=300, fg_color="white", hover_color="gray")
+from_ex_to_home.pack(pady=20)
+
 
 # Affichage de la première page au démarrage
 show_frame(home_page)
